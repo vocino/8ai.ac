@@ -50,4 +50,4 @@ validate.js      → Front matter validation script
 
 ## License
 
-This project is open source. Listings are contributed by the community.
+MIT License. See [LICENSE](LICENSE) for details. Listings are contributed by the community.
