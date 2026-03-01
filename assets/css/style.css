@@ -393,6 +393,23 @@ img {
   transition: border-color 0.15s ease, transform 0.1s ease;
 }
 
+.tool-card__link-wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: -1.25rem;
+  padding: 1.25rem;
+  border-radius: inherit;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.tool-card__link-wrap:hover .tool-card__name,
+.tool-card__link-wrap:hover .tool-card__cta {
+  color: var(--ctp-blue);
+}
+
 .tool-card:hover {
   border-color: var(--ctp-blue);
   transform: translateY(-1px);
@@ -409,14 +426,6 @@ img {
   font-size: 1rem;
   font-weight: 700;
   color: var(--ctp-text);
-}
-
-.tool-card__name a {
-  color: inherit;
-}
-
-.tool-card__name a:hover {
-  color: var(--ctp-blue);
 }
 
 .tool-card__pricing {
@@ -465,7 +474,8 @@ img {
   border-top: 1px solid var(--ctp-surface-1);
 }
 
-.tool-card__link {
+.tool-card__link,
+.tool-card__cta {
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--ctp-blue);

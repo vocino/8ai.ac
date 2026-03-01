@@ -9,23 +9,23 @@
   data-self-hosted="{{ include.tool.self_hosted }}"
   data-launch="{{ include.tool.launch_date }}"
 >
-  <div class="tool-card__header">
-    <h3 class="tool-card__name">
-      <a href="{{ include.tool.url | relative_url }}">{{ include.tool.name }}</a>
-    </h3>
-    <span class="tool-card__pricing pricing-{{ include.tool.pricing }}">{{ include.tool.pricing }}</span>
-  </div>
-  <p class="tool-card__description">{{ include.tool.description }}</p>
-  <div class="tool-card__tags">
-    {% for cat in include.tool.categories %}
-    <span class="tag">{{ cat }}</span>
-    {% endfor %}
-  </div>
-  <div class="tool-card__footer">
-    <a href="{{ include.tool.url | relative_url }}" class="tool-card__link">View details →</a>
-    <div class="tool-card__meta">
-      {% if include.tool.api %}<span class="meta-badge">API</span>{% endif %}
-      {% if include.tool.self_hosted %}<span class="meta-badge">Self-hosted</span>{% endif %}
+  <a href="{{ include.tool.url | relative_url }}" class="tool-card__link-wrap">
+    <div class="tool-card__header">
+      <h3 class="tool-card__name">{{ include.tool.name }}</h3>
+      <span class="tool-card__pricing pricing-{{ include.tool.pricing }}">{{ include.tool.pricing }}</span>
     </div>
-  </div>
+    <p class="tool-card__description">{{ include.tool.description }}</p>
+    <div class="tool-card__tags">
+      {% for cat in include.tool.categories %}
+      <span class="tag">{{ cat }}</span>
+      {% endfor %}
+    </div>
+    <div class="tool-card__footer">
+      <span class="tool-card__cta">View details →</span>
+      <div class="tool-card__meta">
+        {% if include.tool.api %}<span class="meta-badge">API</span>{% endif %}
+        {% if include.tool.self_hosted %}<span class="meta-badge">Self-hosted</span>{% endif %}
+      </div>
+    </div>
+  </a>
 </article>
