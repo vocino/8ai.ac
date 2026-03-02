@@ -59,6 +59,7 @@ validate.js      → Front matter validation script
 <!-- readme: contributors -start --><div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">
 <a href="https://github.com/vocino" title="Vocino"><img src="https://avatars.githubusercontent.com/u/65593?v=4" width="36;" alt="Vocino"/></a>
 <a href="https://github.com/claude" title="Claude"><img src="https://avatars.githubusercontent.com/u/81847?v=4" width="36;" alt="Claude"/></a>
+<a href="https://github.com/CJWTRUST" title="CJWTRUST"><img src="https://avatars.githubusercontent.com/u/235565898?v=4" width="36;" alt="CJWTRUST"/></a>
 
 </div><!-- readme: contributors -end -->
 
