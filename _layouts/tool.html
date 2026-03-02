@@ -42,10 +42,17 @@ layout: default
   {% endif %}
 
   {% if page.categories %}
+  {% assign first_cat = page.categories | first %}
+  {% assign similar_count = 0 %}
+  {% for tool in site.tools %}
+    {% if tool.slug != page.slug and tool.categories contains first_cat %}
+      {% assign similar_count = similar_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
   <section class="tool-detail__similar">
     <h2>Similar tools</h2>
+    {% if similar_count > 0 %}
     <div class="tools-grid">
-      {% assign first_cat = page.categories | first %}
       {% assign count = 0 %}
       {% for tool in site.tools %}
         {% if tool.slug != page.slug and tool.categories contains first_cat and count < 3 %}
@@ -54,6 +61,9 @@ layout: default
         {% endif %}
       {% endfor %}
     </div>
+    {% else %}
+    <p class="tool-detail__similar-empty">No similar tools yet. <a href="https://github.com/vocino/8ai.ac?tab=contributing-ov-file" target="_blank" rel="noopener noreferrer">Add one by contributing</a> →</p>
+    {% endif %}
   </section>
   {% endif %}
 </article>

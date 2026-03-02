@@ -8,7 +8,7 @@ The open-source directory of AI tools, services, and platforms. Free and paid. C
 
 8ai.ac is a community-maintained, open-source directory of AI tools. Every listing is a single Markdown file with structured front matter. The site is built with Jekyll and hosted on GitHub Pages — no database, no backend, just static files.
 
-## Add Your Tool
+## Add a Tool
 
 1. Copy `_tools/_template.md`
 2. Rename it to `your-tool-slug.md`

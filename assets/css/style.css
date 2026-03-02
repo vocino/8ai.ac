@@ -827,6 +827,20 @@ iconify-icon {
   margin-bottom: 1rem;
 }
 
+.tool-detail__similar-empty {
+  color: var(--ctp-overlay-1);
+  font-size: 0.95rem;
+}
+
+.tool-detail__similar-empty a {
+  color: var(--ctp-blue);
+  font-weight: 600;
+}
+
+.tool-detail__similar-empty a:hover {
+  text-decoration: underline;
+}
+
 /* ========================================
    Category Page
    ======================================== */
@@ -875,6 +889,15 @@ iconify-icon {
   font-weight: 700;
   color: var(--ctp-subtext-0);
   margin-bottom: 0.5rem;
+}
+
+.empty-state a {
+  color: var(--ctp-blue);
+  font-weight: 600;
+}
+
+.empty-state a:hover {
+  text-decoration: underline;
 }
 
 /* ========================================
