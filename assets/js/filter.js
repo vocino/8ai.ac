@@ -7,13 +7,14 @@
   const ALL_FILTER_FIELDS = [...ARRAY_FIELDS, ...STRING_FIELDS, ...BOOL_FIELDS];
 
   let allCards = [];
-  let searchBox, resultsCount, sortSelect;
+  let searchBox, resultsCount, sortSelect, clearFiltersBtn;
 
   function init() {
     allCards = Array.from(document.querySelectorAll(".tool-card"));
     searchBox = document.getElementById("searchBox");
     resultsCount = document.getElementById("resultsCount");
     sortSelect = document.getElementById("sortSelect");
+    clearFiltersBtn = document.getElementById("clearFiltersBtn");
 
     document.querySelectorAll(".filter-section__header").forEach(function (btn) {
       btn.addEventListener("click", function () {
@@ -35,6 +36,10 @@
 
     if (sortSelect) {
       sortSelect.addEventListener("change", onFilterChange);
+    }
+
+    if (clearFiltersBtn) {
+      clearFiltersBtn.addEventListener("click", clearFilters);
     }
 
     restoreFromURL();
@@ -114,6 +119,11 @@
 
     if (resultsCount) {
       resultsCount.innerHTML = "Showing <strong>" + visible + "</strong> of <strong>" + allCards.length + "</strong> tools";
+    }
+
+    var hasAnyFilter = Object.keys(filters).some(function (k) { return filters[k].length > 0; }) || (searchBox && searchBox.value.trim().length > 0);
+    if (clearFiltersBtn) {
+      clearFiltersBtn.style.display = hasAnyFilter ? "" : "none";
     }
 
     updateCounts(filters, query);
@@ -210,6 +220,14 @@
   }
 
   function onFilterChange() {
+    applyFilters();
+  }
+
+  function clearFilters() {
+    document.querySelectorAll('.filter-sidebar input[type="checkbox"]').forEach(function (cb) {
+      cb.checked = false;
+    });
+    if (searchBox) searchBox.value = "";
     applyFilters();
   }
 

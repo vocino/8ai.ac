@@ -10,9 +10,9 @@ layout: default
     <div class="tool-detail__title-row">
       <h1 class="tool-detail__name">{{ page.name }}</h1>
       <div class="tool-detail__meta">
-      <span class="tool-card__pricing pricing-{{ page.pricing }}">{{ page.pricing }}</span>
-      {% if page.api %}<span class="tag">API</span>{% endif %}
-      {% if page.self_hosted %}<span class="tag">Self-hosted</span>{% endif %}
+      <a href="{{ '/' | relative_url }}?pricing={{ page.pricing }}" class="tool-card__pricing pricing-{{ page.pricing }}">{{ page.pricing }}</a>
+      {% if page.api %}<a href="{{ '/' | relative_url }}?api=true" class="tag">API</a>{% endif %}
+      {% if page.self_hosted %}<a href="{{ '/' | relative_url }}?self_hosted=true" class="tag">Self-hosted</a>{% endif %}
       {% if page.verified %}<span class="tag" style="background:var(--ctp-green);color:var(--ctp-crust)">Verified</span>{% endif %}
       </div>
     </div>

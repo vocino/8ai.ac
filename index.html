@@ -12,8 +12,11 @@ description: "The open-source directory of AI tools, services, and platforms. Br
     </button>
 
     <div class="results-header">
-      <span class="results-count" id="resultsCount">
-        Showing <strong>{{ site.tools | size }}</strong> of <strong>{{ site.tools | size }}</strong> tools
+      <span class="results-count-wrap">
+        <span class="results-count" id="resultsCount">
+          Showing <strong>{{ site.tools | size }}</strong> of <strong>{{ site.tools | size }}</strong> tools
+        </span>
+        <button type="button" class="results-clear" id="clearFiltersBtn" aria-label="Clear all filters" style="display:none">Clear filters</button>
       </span>
       <select class="sort-select" id="sortSelect" aria-label="Sort tools">
         <option value="newest">Latest</option>
