@@ -1,5 +1,11 @@
 # 8ai.ac — AI Tools Directory
 
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]](LICENSE)
+
 The open-source directory of AI tools, services, and platforms. Free and paid. Community-driven.
 
 **[Browse the directory →](https://8ai.ac)**
@@ -60,3 +66,13 @@ validate.js      → Front matter validation script
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details. Listings are contributed by the community.
+
+[contributors-shield]: https://img.shields.io/github/contributors/vocino/8ai.ac?style=flat-square&color=89b4fa&labelColor=45475a
+[contributors-url]: https://github.com/vocino/8ai.ac/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/vocino/8ai.ac?style=flat-square&color=89b4fa&labelColor=45475a
+[forks-url]: https://github.com/vocino/8ai.ac/network/members
+[stars-shield]: https://img.shields.io/github/stars/vocino/8ai.ac?style=flat-square&color=89b4fa&labelColor=45475a
+[stars-url]: https://github.com/vocino/8ai.ac/stargazers
+[issues-shield]: https://img.shields.io/github/issues/vocino/8ai.ac?style=flat-square&color=89b4fa&labelColor=45475a
+[issues-url]: https://github.com/vocino/8ai.ac/issues
+[license-shield]: https://img.shields.io/github/license/vocino/8ai.ac?style=flat-square&color=89b4fa&labelColor=45475a
