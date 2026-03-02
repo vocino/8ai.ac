@@ -2,6 +2,10 @@
 
 Thanks for wanting to add to the AI tools directory! This project is community-driven — anyone can submit a tool by opening a pull request.
 
+## Scope
+
+Every tool should **help you do something useful**. We list AI tools that are built for AI and enable a productive outcome—writing, creating, coding, designing, researching, automating, and so on. We exclude tools that are primarily passive services (e.g. entertainment chat, character roleplay with no productive use case). When in doubt, ask: does this tool help someone accomplish a task?
+
 ## Adding a New Tool
 
 ### 1. Copy the template
