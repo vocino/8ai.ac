@@ -20,14 +20,15 @@ jobs:
         uses: jaywcjlove/github-action-contributors@main
         with:
           output: build/CONTRIBUTORS.svg
-          filter-author: "^(claude)$"
-          avatarSize: "42"
+          avatarSize: "36"
 
       - name: Update README with contributors
         uses: jaywcjlove/github-action-modify-file-content@main
         with:
           path: README.md
-          body: ${{ steps.contributors.outputs.htmlList }}
+          body: |
+            <style>.contributors img{border-radius:50%;}</style>
+            <p align="center" class="contributors">${{ steps.contributors.outputs.htmlList }}</p>
           openDelimiter: "<!-- readme: contributors -start -->"
           closeDelimiter: "<!-- readme: contributors -end -->"
           message: "docs(contributor): update contributors in README"
