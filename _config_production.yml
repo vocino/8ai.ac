@@ -1,0 +1,3 @@
+# Production overrides - ensures correct URLs when deploying
+# Used automatically when JEKYLL_ENV=production
+url: "https://8ai.ac"
