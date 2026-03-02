@@ -1,0 +1,2 @@
+# Redirect old category .html URLs to pretty URLs (for Cloudflare Pages / Netlify)
+/category/:slug.html /category/:slug/ 301

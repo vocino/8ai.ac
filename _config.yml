@@ -39,6 +39,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+include:
+  - _redirects
+
 exclude:
   - Gemfile
   - Gemfile.lock
