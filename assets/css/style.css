@@ -123,8 +123,9 @@ iconify-icon {
 }
 
 .site-nav__tagline {
-  flex: 1;
-  min-width: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   margin: 0;
   font-size: 0.75rem;
   font-weight: 400;

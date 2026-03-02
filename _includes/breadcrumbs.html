@@ -4,11 +4,11 @@
     {% assign first_cat = include.categories | first %}
     {% for cat in site.data.categories %}
       {% if cat.slug == first_cat %}
-        → <a href="{{ '/category/' | append: cat.slug | append: '/' | relative_url }}">{{ cat.label }}</a>
+        / <a href="{{ '/category/' | append: cat.slug | append: '/' | relative_url }}">{{ cat.label }}</a>
       {% endif %}
     {% endfor %}
   {% endif %}
-  → {{ include.name }}
+  / {{ include.name }}
 </nav>
 <script type="application/ld+json">
 {
