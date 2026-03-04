@@ -8,7 +8,7 @@
   data-api="{{ include.tool.api }}"
   data-self-hosted="{{ include.tool.self_hosted }}"
   data-launch="{{ include.tool.launch_date }}"
-  data-added="{{ include.tool.added_date }}"
+  data-added="{{ site.data.tool_added_dates[include.tool.slug] | default: '' }}"
 >
   <a href="{{ include.tool.url | relative_url }}" class="tool-card__link-wrap">
     <div class="tool-card__header">

@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "generate-added-dates": "node scripts/generate-added-dates.js"
+  },
   "dependencies": {
     "js-yaml": "^4.1.1"
   }
