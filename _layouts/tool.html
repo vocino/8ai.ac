@@ -20,7 +20,23 @@ layout: default
     <p class="tool-detail__description">{{ page.description }}</p>
 
     <div class="tool-detail__actions">
-      <a href="{{ page.website }}" class="tool-detail__visit" target="_blank" rel="noopener noreferrer">
+      {% assign w = page.website | split: "#" %}
+      {% assign base_url = w[0] %}
+      {% assign fragment = w[1] %}
+      {% if base_url contains "utm_source=" %}
+        {% assign outbound_url = page.website %}
+      {% else %}
+        {% assign utm_params = "utm_source=8ai.ac&utm_medium=referral&utm_campaign=tool_directory" %}
+        {% if base_url contains "?" %}
+          {% assign outbound_url = base_url | append: "&" | append: utm_params %}
+        {% else %}
+          {% assign outbound_url = base_url | append: "?" | append: utm_params %}
+        {% endif %}
+        {% if fragment %}
+          {% assign outbound_url = outbound_url | append: "#" | append: fragment %}
+        {% endif %}
+      {% endif %}
+      <a href="{{ outbound_url }}" class="tool-detail__visit" target="_blank" rel="noopener" referrerpolicy="origin">
         Visit {{ page.name }} →
       </a>
       <p class="tool-detail__edit">
