@@ -168,7 +168,7 @@
         return (b.dataset.name || "").localeCompare(a.dataset.name || "");
       }
       if (order === "newest") {
-        return (b.dataset.launch || "").localeCompare(a.dataset.launch || "");
+        return (b.dataset.added || "").localeCompare(a.dataset.added || "");
       }
       return 0;
     });

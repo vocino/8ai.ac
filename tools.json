@@ -16,7 +16,8 @@ layout: null
     "api": {{ tool.api | default: false | jsonify }},
     "self_hosted": {{ tool.self_hosted | default: false | jsonify }},
     "features": {{ tool.features | default: empty | jsonify }},
-    "launch_date": {{ tool.launch_date | default: "" | jsonify }}
+    "launch_date": {{ tool.launch_date | default: "" | jsonify }},
+    "added_date": {{ tool.added_date | default: "" | jsonify }}
   }{% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]

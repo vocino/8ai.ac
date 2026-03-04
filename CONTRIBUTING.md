@@ -32,6 +32,8 @@ Every field marked **REQUIRED** must be filled in. Here's a quick reference:
 | `launch_date` | No | string | YYYY-MM format |
 | `verified` | No | boolean | Leave as false (maintainers set this) |
 
+**Sorting:** The "Latest" sort on the directory is by when the tool was added to the repo (file date at build time), not by product launch. `launch_date` is optional and used for display/reference only.
+
 **Website URL:** Use the tool’s clean URL (e.g. `https://example.com`). The site automatically appends UTM parameters for referral attribution when users click “Visit”; you don’t need to add them. If a listing already includes campaign-specific UTMs, those are left unchanged.
 
 ### 3. Write a description
