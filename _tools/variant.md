@@ -17,7 +17,7 @@ api: false
 self_hosted: false
 features:
   - Endless scroll of generated design options from prompts
-  - "Surprise me" mode for rapid visual ideation
+  - Surprise me mode for rapid visual ideation
   - Web app with Google or email account access
 verified: false
 ---
