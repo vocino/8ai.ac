@@ -26,4 +26,4 @@ features:
 launch_date: "2023-11"
 verified: false
 ---
-Grok is xAI's AI assistant, founded by Elon Musk. It differentiates itself with real-time access to posts on X (Twitter) and a less restricted conversational style. Grok is integrated into the X platform for Premium subscribers and is also accessible through xAI's API, with image generation powered by the Aurora model.
+What is Grok? Grok is xAI's AI assistant, founded by Elon Musk. It differentiates itself with real-time access to posts on X (Twitter) and a less restricted conversational style. Grok is integrated into the X platform for Premium subscribers and is also accessible through xAI's API, with image generation powered by the Aurora model.

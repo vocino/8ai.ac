@@ -23,4 +23,4 @@ features:
 launch_date: "2019-08"
 verified: false
 ---
-Tabnine is an AI code completion assistant that has been one of the pioneering tools in the space since 2019. It offers both cloud-based and local (on-device) models, making it a strong choice for enterprises with strict data privacy requirements. Tabnine integrates with all major IDEs and supports over 70 programming languages, learning from a team's private codebase to provide context-aware suggestions.
+What is Tabnine? Tabnine is an AI code completion assistant that has been one of the pioneering tools in the space since 2019. It offers both cloud-based and local (on-device) models, making it a strong choice for enterprises with strict data privacy requirements. Tabnine integrates with all major IDEs and supports over 70 programming languages, learning from a team's private codebase to provide context-aware suggestions.

@@ -2,7 +2,7 @@
 layout: default
 ---
 <div class="category-page">
-  {% include breadcrumbs.html name=page.title %}
+  {% include breadcrumbs.html name=page.title current_item=page.url %}
 
   <h1 class="category-page__title">{{ page.title }}</h1>
   <p class="category-page__description">{{ page.description }}</p>

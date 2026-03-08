@@ -22,4 +22,4 @@ features:
 launch_date: "2022-12"
 verified: false
 ---
-Codeium is an AI code acceleration toolkit that offers code completion and in-editor chat entirely free for individual developers. It supports over 70 languages and integrates with more than 40 IDEs. Codeium's enterprise tier offers self-hosted deployment for organizations with strict security requirements. The same team also builds the Windsurf AI-native IDE.
+What is Codeium? Codeium is an AI code acceleration toolkit that offers code completion and in-editor chat entirely free for individual developers. It supports over 70 languages and integrates with more than 40 IDEs. Codeium's enterprise tier offers self-hosted deployment for organizations with strict security requirements. The same team also builds the Windsurf AI-native IDE.

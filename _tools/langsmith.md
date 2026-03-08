@@ -24,4 +24,4 @@ features:
 launch_date: "2023-07"
 verified: false
 ---
-LangSmith is an observability and evaluation platform for LLM applications, built by the LangChain team. It provides tools for tracing LLM calls, debugging chains and agents, evaluating prompt performance, and monitoring production applications. While it integrates deeply with LangChain, LangSmith works with any LLM framework or direct API calls. It is widely used by teams building production AI applications who need visibility into their LLM pipelines.
+What is LangSmith? LangSmith is an observability and evaluation platform for LLM applications, built by the LangChain team. It provides tools for tracing LLM calls, debugging chains and agents, evaluating prompt performance, and monitoring production applications. While it integrates deeply with LangChain, LangSmith works with any LLM framework or direct API calls. It is widely used by teams building production AI applications who need visibility into their LLM pipelines.

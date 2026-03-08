@@ -25,4 +25,4 @@ features:
 launch_date: "2023-09"
 verified: false
 ---
-AutoGen is Microsoft's open-source framework for building multi-agent AI systems. It enables developers to create agents that can converse with each other, use tools, execute code, and collaborate on complex tasks. AutoGen supports flexible conversation patterns, human-in-the-loop workflows, and integrates with any LLM provider. It is one of the most widely adopted agent frameworks for both research and production use.
+What is AutoGen? AutoGen is Microsoft's open-source framework for building multi-agent AI systems. It enables developers to create agents that can converse with each other, use tools, execute code, and collaborate on complex tasks. AutoGen supports flexible conversation patterns, human-in-the-loop workflows, and integrates with any LLM provider. It is one of the most widely adopted agent frameworks for both research and production use.

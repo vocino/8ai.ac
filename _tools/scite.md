@@ -22,4 +22,4 @@ features:
 launch_date: "2019-01"
 verified: false
 ---
-Scite enhances citations by classifying how papers cite each other — as supporting, contradicting, or merely mentioning. Researchers can quickly see how a finding is used across the literature and identify consensus or debate. Scite offers a browser extension and API for integration.
+What is Scite? Scite enhances citations by classifying how papers cite each other — as supporting, contradicting, or merely mentioning. Researchers can quickly see how a finding is used across the literature and identify consensus or debate. Scite offers a browser extension and API for integration.

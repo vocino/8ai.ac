@@ -24,4 +24,4 @@ features:
 launch_date: "2016-01"
 verified: false
 ---
-Replit is a cloud-based coding platform that has evolved into a major AI-powered development environment. Its Replit Agent can build and deploy complete applications from natural language descriptions, handling everything from project setup to database configuration and deployment. The platform also offers AI-assisted code completion and chat, making it popular for both beginners and experienced developers.
+What is Replit? Replit is a cloud-based coding platform that has evolved into a major AI-powered development environment. Its Replit Agent can build and deploy complete applications from natural language descriptions, handling everything from project setup to database configuration and deployment. The platform also offers AI-assisted code completion and chat, making it popular for both beginners and experienced developers.

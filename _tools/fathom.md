@@ -25,4 +25,4 @@ features:
 launch_date: "2021-03"
 verified: false
 ---
-Fathom records and transcribes meetings, then produces summaries and highlights. It joins calls as a bot, records with permission, and makes it easy to share clips and notes. Fathom is free for individual use with paid plans for teams.
+What is Fathom? Fathom records and transcribes meetings, then produces summaries and highlights. It joins calls as a bot, records with permission, and makes it easy to share clips and notes. Fathom is free for individual use with paid plans for teams.

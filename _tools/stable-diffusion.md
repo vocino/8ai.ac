@@ -23,4 +23,4 @@ features:
 launch_date: "2022-08"
 verified: false
 ---
-Stable Diffusion is an open-source image generation model by Stability AI. It can be run locally on consumer hardware or accessed via cloud APIs. Its open nature has spawned a massive ecosystem of fine-tuned models, UIs (ComfyUI, Automatic1111), and extensions.
+What is Stable Diffusion? Stable Diffusion is an open-source image generation model by Stability AI. It can be run locally on consumer hardware or accessed via cloud APIs. Its open nature has spawned a massive ecosystem of fine-tuned models, UIs (ComfyUI, Automatic1111), and extensions.

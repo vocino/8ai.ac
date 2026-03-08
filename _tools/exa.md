@@ -25,4 +25,4 @@ features:
 launch_date: "2023-01"
 verified: false
 ---
-Exa (formerly Metaphor) is an AI search API designed to power agents and applications with high-quality web search. It provides semantic search, content crawling, natural language answers, and in-depth research with structured output. Exa is used by Notion, Cursor, OpenRouter, and others to ground AI in real-world data. The API offers a free tier and enterprise plans with custom data retention and SLAs.
+What is Exa? Exa (formerly Metaphor) is an AI search API designed to power agents and applications with high-quality web search. It provides semantic search, content crawling, natural language answers, and in-depth research with structured output. Exa is used by Notion, Cursor, OpenRouter, and others to ground AI in real-world data. The API offers a free tier and enterprise plans with custom data retention and SLAs.

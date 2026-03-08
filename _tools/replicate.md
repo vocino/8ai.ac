@@ -25,4 +25,4 @@ features:
 launch_date: "2021-01"
 verified: false
 ---
-Replicate is a cloud platform that makes it easy to run machine learning models via a simple API, with no infrastructure setup required. It hosts over 10,000 open-source models spanning image generation (Stable Diffusion, FLUX), video generation, speech synthesis, and NLP. Developers pay only for the GPU compute time their predictions consume, making it cost-effective for low-volume use cases.
+What is Replicate? Replicate is a cloud platform that makes it easy to run machine learning models via a simple API, with no infrastructure setup required. It hosts over 10,000 open-source models spanning image generation (Stable Diffusion, FLUX), video generation, speech synthesis, and NLP. Developers pay only for the GPU compute time their predictions consume, making it cost-effective for low-volume use cases.

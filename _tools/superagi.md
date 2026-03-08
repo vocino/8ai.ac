@@ -23,4 +23,4 @@ features:
 launch_date: "2023-06"
 verified: false
 ---
-SuperAGI is an open-source platform for creating and running autonomous AI agents. It provides tool integration, model support, and a visual builder for designing agent workflows. SuperAGI can be self-hosted for full control over data and infrastructure.
+What is SuperAGI? SuperAGI is an open-source platform for creating and running autonomous AI agents. It provides tool integration, model support, and a visual builder for designing agent workflows. SuperAGI can be self-hosted for full control over data and infrastructure.

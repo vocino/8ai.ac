@@ -4,7 +4,7 @@ layout: default
 {% include json-ld.html tool=page %}
 
 <article class="tool-detail">
-  {% include breadcrumbs.html name=page.name categories=page.categories %}
+  {% include breadcrumbs.html name=page.name categories=page.categories current_item=page.url %}
 
   <header class="tool-detail__header">
     <div class="tool-detail__title-row">

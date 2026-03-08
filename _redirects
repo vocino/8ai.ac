@@ -1,2 +1,7 @@
-# Redirect old category .html URLs to pretty URLs (for Cloudflare Pages / Netlify)
+# Redirect old category .html URLs to pretty URLs (Cloudflare Pages / Netlify)
 /category/:slug.html /category/:slug/ 301
+
+# Trailing slash: ensure /tools/name redirects to /tools/name/ (canonical)
+/tools/*  /tools/:splat/  301
+
+# HTTP→HTTPS is handled at the host (Cloudflare Pages). Ensure "Always Use HTTPS" is on.

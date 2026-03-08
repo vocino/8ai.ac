@@ -24,4 +24,4 @@ features:
 launch_date: "2022-01"
 verified: false
 ---
-Phind is an AI search engine built for developers. It combines generative AI with live web search to answer technical questions quickly, with support for multiple programming languages and frameworks. Phind provides code examples, debugging help, and best practices while staying current with documentation. The free tier offers core features; Phind Pro adds access to advanced models and longer context for power users.
+What is Phind? Phind is an AI search engine built for developers. It combines generative AI with live web search to answer technical questions quickly, with support for multiple programming languages and frameworks. Phind provides code examples, debugging help, and best practices while staying current with documentation. The free tier offers core features; Phind Pro adds access to advanced models and longer context for power users.

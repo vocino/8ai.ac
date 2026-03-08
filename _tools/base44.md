@@ -26,4 +26,4 @@ features:
 launch_date: "2024-10"
 verified: false
 ---
-Base44 is an AI-powered app builder that lets anyone turn a plain-language description into a fully functional web app in minutes — no coding required. Unlike many competitors, it bundles its own database, authentication, and hosting into a single platform, so there are no external services to wire up. It supports a broad set of integrations including LLMs, file uploads, image understanding, email, SMS, and Stripe payments. Base44 was acquired by Wix in 2025 after reaching over 250,000 users within months of launch.
+What is Base44? Base44 is an AI-powered app builder that lets anyone turn a plain-language description into a fully functional web app in minutes — no coding required. Unlike many competitors, it bundles its own database, authentication, and hosting into a single platform, so there are no external services to wire up. It supports a broad set of integrations including LLMs, file uploads, image understanding, email, SMS, and Stripe payments. Base44 was acquired by Wix in 2025 after reaching over 250,000 users within months of launch.
