@@ -84,7 +84,7 @@ Output a complete .md file with valid YAML front matter and a 2–4 sentence Mar
 The slug must be lowercase with hyphens only and match the filename (e.g. my-tool-name.md).
 ```
 
-After you get the output, save it as `_tools/[slug].md`, run `node validate.js` to confirm it passes, and open a pull request.
+After you get the output, save it as `_tools/[slug].md`. From the repo root run `npm install` then `node validate.js` to confirm it passes, and open a pull request.
 
 ## Categories
 

@@ -41,6 +41,14 @@ bundle exec jekyll serve
 
 Then open [http://localhost:4000](http://localhost:4000).
 
+To run the same steps as CI (e.g. generate added-dates or validate tool listings), you need Node.js 20+ and npm:
+
+```bash
+npm install
+node scripts/generate-added-dates.js   # optional: regenerates _data/tool_added_dates.yml
+node validate.js                       # validates _tools/*.md front matter (runs on PRs)
+```
+
 ## Project Structure
 
 ```
@@ -50,8 +58,10 @@ _layouts/        → Page layouts (default, tool, category)
 _includes/       → Reusable components (nav, sidebar, cards)
 assets/          → CSS and JavaScript
 category/        → Category landing pages
+scripts/         → Node scripts (e.g. generate-added-dates.js for CI/build)
 tools.json       → Generated API endpoint
-validate.js      → Front matter validation script
+validate.js      → Front matter validation script (run after npm install)
+package.json     → Node deps for scripts (js-yaml); used in CI
 ```
 
 ## Contributors
