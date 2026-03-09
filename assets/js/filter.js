@@ -5,16 +5,25 @@
   const STRING_FIELDS = ["pricing"];
   const BOOL_FIELDS = ["api", "self_hosted"];
   const ALL_FILTER_FIELDS = [...ARRAY_FIELDS, ...STRING_FIELDS, ...BOOL_FIELDS];
+  const INITIAL_VISIBLE = 24;
+  const BATCH_SIZE = 24;
 
   let allCards = [];
-  let searchBox, resultsCount, sortSelect, clearFiltersBtn;
+  let matchedCards = [];
+  let revealedCount = INITIAL_VISIBLE;
+  let searchBox, resultsCount, resultsHelper, sortSelect, clearFiltersBtn, showMoreToolsBtn, toolsReveal, toolsRevealSummary, toolsRevealSentinel;
 
   function init() {
     allCards = Array.from(document.querySelectorAll(".tool-card"));
     searchBox = document.getElementById("searchBox");
     resultsCount = document.getElementById("resultsCount");
+    resultsHelper = document.getElementById("resultsHelper");
     sortSelect = document.getElementById("sortSelect");
     clearFiltersBtn = document.getElementById("clearFiltersBtn");
+    showMoreToolsBtn = document.getElementById("showMoreToolsBtn");
+    toolsReveal = document.getElementById("toolsReveal");
+    toolsRevealSummary = document.getElementById("toolsRevealSummary");
+    toolsRevealSentinel = document.getElementById("toolsRevealSentinel");
 
     document.querySelectorAll(".filter-section__header").forEach(function (btn) {
       btn.addEventListener("click", function () {
@@ -42,6 +51,11 @@
       clearFiltersBtn.addEventListener("click", clearFilters);
     }
 
+    if (showMoreToolsBtn) {
+      showMoreToolsBtn.addEventListener("click", showNextBatch);
+    }
+
+    setupRevealObserver();
     restoreFromURL();
     applyFilters();
   }
@@ -109,16 +123,15 @@
   function applyFilters() {
     var filters = getActiveFilters();
     var query = searchBox ? searchBox.value.toLowerCase().trim() : "";
-    var visible = 0;
-
-    allCards.forEach(function (card) {
-      var show = matchesFilters(card, filters, query);
-      card.style.display = show ? "" : "none";
-      if (show) visible++;
+    matchedCards = allCards.filter(function (card) {
+      return matchesFilters(card, filters, query);
     });
 
+    sortMatchedCards();
+    renderVisibleCards();
+
     if (resultsCount) {
-      resultsCount.innerHTML = "Showing <strong>" + visible + "</strong> of <strong>" + allCards.length + "</strong> tools";
+      resultsCount.innerHTML = "Showing <strong>" + Math.min(revealedCount, matchedCards.length) + "</strong> of <strong>" + matchedCards.length + "</strong> matching tools";
     }
 
     var hasAnyFilter = Object.keys(filters).some(function (k) { return filters[k].length > 0; }) || (searchBox && searchBox.value.trim().length > 0);
@@ -127,9 +140,9 @@
     }
 
     updateCounts(filters, query);
-    sortCards();
     updateURL(filters, query);
-    toggleEmptyState(visible);
+    toggleEmptyState(matchedCards.length);
+    updateRevealUI(hasAnyFilter, query);
   }
 
   function updateCounts(currentFilters, query) {
@@ -152,15 +165,14 @@
     });
   }
 
-  function sortCards() {
+  function sortMatchedCards() {
     if (!sortSelect) return;
     var grid = document.querySelector(".tools-grid");
     if (!grid) return;
 
     var order = sortSelect.value;
-    var visible = allCards.filter(function (c) { return c.style.display !== "none"; });
 
-    visible.sort(function (a, b) {
+    matchedCards.sort(function (a, b) {
       if (order === "name-asc") {
         return (a.dataset.name || "").localeCompare(b.dataset.name || "");
       }
@@ -173,7 +185,90 @@
       return 0;
     });
 
-    visible.forEach(function (card) { grid.appendChild(card); });
+    matchedCards.forEach(function (card) { grid.appendChild(card); });
+  }
+
+  function renderVisibleCards() {
+    var visibleLimit = Math.min(revealedCount, matchedCards.length);
+    var visibleSet = new Set(matchedCards.slice(0, visibleLimit));
+
+    allCards.forEach(function (card) {
+      card.style.display = visibleSet.has(card) ? "" : "none";
+    });
+  }
+
+  function updateRevealUI(hasAnyFilter, query) {
+    var visibleCount = Math.min(revealedCount, matchedCards.length);
+    var remaining = Math.max(matchedCards.length - visibleCount, 0);
+    var hasMore = remaining > 0;
+
+    if (resultsHelper) {
+      if (!matchedCards.length) {
+        resultsHelper.textContent = "Try a broader search or remove a few filters to see more tools.";
+      } else if (hasMore) {
+        resultsHelper.textContent = "Keep scrolling to reveal more tools, or refine the list with filters.";
+      } else if (hasAnyFilter || query) {
+        resultsHelper.textContent = "You are seeing every tool that matches the current filters.";
+      } else {
+        resultsHelper.textContent = "You are seeing every tool in the directory.";
+      }
+    }
+
+    if (toolsReveal) {
+      toolsReveal.style.display = hasMore ? "" : "none";
+    }
+
+    if (toolsRevealSummary) {
+      if (hasMore) {
+        toolsRevealSummary.textContent = remaining + " more tools are ready below this point.";
+      } else {
+        toolsRevealSummary.textContent = "";
+      }
+    }
+
+    if (showMoreToolsBtn) {
+      showMoreToolsBtn.style.display = hasMore ? "" : "none";
+      if (hasMore) {
+        showMoreToolsBtn.textContent = "Show " + Math.min(BATCH_SIZE, remaining) + " more tools";
+      }
+    }
+  }
+
+  function setupRevealObserver() {
+    if (!("IntersectionObserver" in window) || !toolsRevealSentinel) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          showNextBatch();
+        }
+      });
+    }, {
+      rootMargin: "200px 0px"
+    });
+
+    observer.observe(toolsRevealSentinel);
+  }
+
+  function resetRevealWindow() {
+    revealedCount = INITIAL_VISIBLE;
+  }
+
+  function showNextBatch() {
+    if (revealedCount >= matchedCards.length) return;
+
+    revealedCount = Math.min(revealedCount + BATCH_SIZE, matchedCards.length);
+    renderVisibleCards();
+    updateRevealUI(hasActiveFilters(), searchBox ? searchBox.value.toLowerCase().trim() : "");
+
+    if (resultsCount) {
+      resultsCount.innerHTML = "Showing <strong>" + Math.min(revealedCount, matchedCards.length) + "</strong> of <strong>" + matchedCards.length + "</strong> matching tools";
+    }
+  }
+
+  function hasActiveFilters() {
+    var filters = getActiveFilters();
+    return Object.keys(filters).some(function (k) { return filters[k].length > 0; }) || (searchBox && searchBox.value.trim().length > 0);
   }
 
   function updateURL(filters, query) {
@@ -184,6 +279,7 @@
       }
     });
     if (query) params.set("q", query);
+    if (sortSelect && sortSelect.value) params.set("sort", sortSelect.value);
 
     var qs = params.toString();
     var url = window.location.pathname + (qs ? "?" + qs : "");
@@ -220,6 +316,7 @@
   }
 
   function onFilterChange() {
+    resetRevealWindow();
     applyFilters();
   }
 
@@ -228,6 +325,7 @@
       cb.checked = false;
     });
     if (searchBox) searchBox.value = "";
+    resetRevealWindow();
     applyFilters();
   }
 

@@ -25,10 +25,20 @@ description: "The open-source directory of AI tools, services, and platforms. Br
       </select>
     </div>
 
+    <p class="results-helper" id="resultsHelper">Keep scrolling to reveal more tools, or refine the list with filters.</p>
+
     <div class="tools-grid" id="toolsGrid">
       {% for tool in site.tools %}
         {% include tool-card.html tool=tool %}
       {% endfor %}
+    </div>
+
+    <div class="tools-reveal" id="toolsReveal" aria-live="polite" style="display:none">
+      <div class="tools-reveal__fade" aria-hidden="true"></div>
+      <p class="tools-reveal__eyebrow">Keep exploring</p>
+      <p class="tools-reveal__summary" id="toolsRevealSummary"></p>
+      <button type="button" class="tools-reveal__button" id="showMoreToolsBtn">Show more tools</button>
+      <div class="tools-reveal__sentinel" id="toolsRevealSentinel" aria-hidden="true"></div>
     </div>
 
     <div class="empty-state" id="emptyState" style="display:none">
