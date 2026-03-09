@@ -11,7 +11,7 @@
   let allCards = [];
   let matchedCards = [];
   let revealedCount = INITIAL_VISIBLE;
-  let searchBox, resultsCount, resultsHelper, sortSelect, clearFiltersBtn, showMoreToolsBtn, toolsReveal, toolsRevealSummary, toolsRevealSentinel;
+  let searchBox, resultsCount, resultsHelper, sortSelect, clearFiltersBtn, showMoreToolsBtn, toolsReveal, toolsRevealSummary, toolsRevealSentinel, appliedFiltersRow;
 
   function init() {
     allCards = Array.from(document.querySelectorAll(".tool-card"));
@@ -24,6 +24,7 @@
     toolsReveal = document.getElementById("toolsReveal");
     toolsRevealSummary = document.getElementById("toolsRevealSummary");
     toolsRevealSentinel = document.getElementById("toolsRevealSentinel");
+    appliedFiltersRow = document.getElementById("appliedFilters");
 
     document.querySelectorAll(".filter-section__header").forEach(function (btn) {
       btn.addEventListener("click", function () {
@@ -140,6 +141,7 @@
     }
 
     updateCounts(filters, query);
+    updateAppliedFiltersUI(filters, query);
     updateURL(filters, query);
     toggleEmptyState(matchedCards.length);
     updateRevealUI(hasAnyFilter, query);
@@ -315,8 +317,22 @@
     }
   }
 
+  var SHIMMER_DURATION_MS = 1200;
+
+  function triggerBuildInShimmer() {
+    var grid = document.querySelector(".tools-grid");
+    if (!grid) return;
+    grid.classList.remove("tools-grid--build-in");
+    grid.offsetHeight;
+    grid.classList.add("tools-grid--build-in");
+    setTimeout(function () {
+      grid.classList.remove("tools-grid--build-in");
+    }, SHIMMER_DURATION_MS);
+  }
+
   function onFilterChange() {
     resetRevealWindow();
+    triggerBuildInShimmer();
     applyFilters();
   }
 
@@ -326,7 +342,85 @@
     });
     if (searchBox) searchBox.value = "";
     resetRevealWindow();
+    triggerBuildInShimmer();
     applyFilters();
+  }
+
+  function updateAppliedFiltersUI(filters, query) {
+    if (!appliedFiltersRow) return;
+
+    appliedFiltersRow.innerHTML = "";
+
+    var chips = [];
+
+    document.querySelectorAll('.filter-sidebar input[type="checkbox"]:checked').forEach(function (cb) {
+      var labelSpan = cb.closest("label").querySelector("span");
+      var labelText = labelSpan ? labelSpan.textContent.trim() : cb.value;
+      chips.push({
+        type: "filter",
+        name: cb.name,
+        value: cb.value,
+        label: labelText
+      });
+    });
+
+    if (searchBox && query) {
+      chips.push({
+        type: "search",
+        name: "q",
+        value: query,
+        label: 'Search: "' + searchBox.value.trim() + '"'
+      });
+    }
+
+    if (!chips.length) {
+      return;
+    }
+
+    chips.forEach(function (chip) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "applied-filters__chip" + (chip.type === "search" ? " applied-filters__chip--search" : "");
+      btn.setAttribute("data-chip-type", chip.type);
+      btn.setAttribute("data-chip-name", chip.name);
+      btn.setAttribute("data-chip-value", chip.value);
+
+      var labelSpan = document.createElement("span");
+      labelSpan.className = "applied-filters__chip-label";
+      labelSpan.textContent = chip.label;
+
+      var removeSpan = document.createElement("span");
+      removeSpan.className = "applied-filters__chip-remove";
+      removeSpan.setAttribute("aria-hidden", "true");
+      removeSpan.textContent = "✕";
+
+      btn.appendChild(labelSpan);
+      btn.appendChild(removeSpan);
+
+      btn.addEventListener("click", function () {
+        var type = btn.getAttribute("data-chip-type");
+        var fieldName = btn.getAttribute("data-chip-name");
+        var fieldValue = btn.getAttribute("data-chip-value");
+
+        if (type === "search") {
+          if (searchBox) {
+            searchBox.value = "";
+          }
+        } else {
+          var selector = '.filter-sidebar input[name="' + fieldName + '"][value="' + fieldValue + '"]';
+          var control = document.querySelector(selector);
+          if (control) {
+            control.checked = false;
+          }
+        }
+
+        resetRevealWindow();
+        triggerBuildInShimmer();
+        applyFilters();
+      });
+
+      appliedFiltersRow.appendChild(btn);
+    });
   }
 
   function debounce(fn, ms) {

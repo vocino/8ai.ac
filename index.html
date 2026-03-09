@@ -11,41 +11,46 @@ description: "The open-source directory of AI tools, services, and platforms. Br
       <iconify-icon icon="catppuccin:folder" class="filter-toggle__icon" aria-hidden="true"></iconify-icon>Filters
     </button>
 
-    <div class="results-header">
-      <span class="results-count-wrap">
-        <span class="results-count" id="resultsCount">
-          Showing <strong>{{ site.tools | size }}</strong> of <strong>{{ site.tools | size }}</strong> tools
-        </span>
-        <button type="button" class="results-clear" id="clearFiltersBtn" aria-label="Clear all filters" style="display:none">Clear filters</button>
-      </span>
-      <select class="sort-select" id="sortSelect" aria-label="Sort tools">
-        <option value="newest">Latest</option>
-        <option value="name-asc">Name A–Z</option>
-        <option value="name-desc">Name Z–A</option>
-      </select>
-    </div>
+    <section class="results-shell" aria-label="AI tools directory">
+      <div class="results-shell__panel">
+        <div class="results-header">
+          <span class="results-count-wrap">
+            <span class="results-count" id="resultsCount">
+              Showing <strong>{{ site.tools | size }}</strong> of <strong>{{ site.tools | size }}</strong> tools
+            </span>
+            <button type="button" class="results-clear" id="clearFiltersBtn" aria-label="Clear all filters" style="display:none">Clear filters</button>
+          </span>
+          <select class="sort-select" id="sortSelect" aria-label="Sort tools">
+            <option value="newest">Latest</option>
+            <option value="name-asc">Name A–Z</option>
+            <option value="name-desc">Name Z–A</option>
+          </select>
+        </div>
 
-    <p class="results-helper" id="resultsHelper">Keep scrolling to reveal more tools, or refine the list with filters.</p>
+        <p class="results-helper" id="resultsHelper">Keep scrolling to reveal more tools, or refine the list with filters.</p>
+        <div class="applied-filters" id="appliedFilters" aria-live="polite" aria-label="Active filters"></div>
+      </div>
 
-    <div class="tools-grid" id="toolsGrid">
-      {% for tool in site.tools %}
-        {% include tool-card.html tool=tool %}
-      {% endfor %}
-    </div>
+      <div class="tools-grid" id="toolsGrid">
+        {% for tool in site.tools %}
+          {% include tool-card.html tool=tool %}
+        {% endfor %}
+      </div>
 
-    <div class="tools-reveal" id="toolsReveal" aria-live="polite" style="display:none">
-      <div class="tools-reveal__fade" aria-hidden="true"></div>
-      <p class="tools-reveal__eyebrow">Keep exploring</p>
-      <p class="tools-reveal__summary" id="toolsRevealSummary"></p>
-      <button type="button" class="tools-reveal__button" id="showMoreToolsBtn">Show more tools</button>
-      <div class="tools-reveal__sentinel" id="toolsRevealSentinel" aria-hidden="true"></div>
-    </div>
+      <div class="tools-reveal" id="toolsReveal" aria-live="polite" style="display:none">
+        <div class="tools-reveal__fade" aria-hidden="true"></div>
+        <p class="tools-reveal__eyebrow">Keep exploring</p>
+        <p class="tools-reveal__summary" id="toolsRevealSummary"></p>
+        <button type="button" class="tools-reveal__button" id="showMoreToolsBtn">Show more tools</button>
+        <div class="tools-reveal__sentinel" id="toolsRevealSentinel" aria-hidden="true"></div>
+      </div>
 
-    <div class="empty-state" id="emptyState" style="display:none">
-      <iconify-icon icon="catppuccin:search" class="empty-state__icon" aria-hidden="true"></iconify-icon>
-      <p class="empty-state__title">No tools match your filters</p>
-      <p>Try removing some filters or broadening your search.</p>
-      <p><a href="https://github.com/vocino/8ai.ac?tab=contributing-ov-file" target="_blank" rel="noopener noreferrer">Add a tool by contributing</a> →</p>
-    </div>
+      <div class="empty-state" id="emptyState" style="display:none">
+        <iconify-icon icon="catppuccin:search" class="empty-state__icon" aria-hidden="true"></iconify-icon>
+        <p class="empty-state__title">No tools match your filters</p>
+        <p>Try removing some filters or broadening your search.</p>
+        <p><a href="https://github.com/vocino/8ai.ac?tab=contributing-ov-file" target="_blank" rel="noopener noreferrer">Add a tool by contributing</a> →</p>
+      </div>
+    </section>
   </main>
 </div>
